@@ -1,0 +1,78 @@
+---
+const navItems = [
+  { name: 'Home', url: '#home' },
+  { name: 'Experience', url: '#experience' },
+  { name: 'Projects', url: '#projects' },
+  { name: 'Technologies', url: '#technologies' },
+  { name: 'Contact', url: '#contact' },
+];
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+  <div class="container mx-auto py-4 px-4 md:px-6">
+    <nav class="flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="#home" class="text-primary-700 font-bold text-xl">YourName</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden">
+        <button id="mobile-menu-button" class="text-primary-700 hover:text-primary-900">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Desktop menu -->
+      <ul class="hidden md:flex space-x-8">
+        {navItems.map(item => (
+          <li>
+            <a href={item.url} class="text-gray-700 hover:text-primary-600 transition duration-300">
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg py-2 px-4 absolute left-4 right-4">
+      <ul class="space-y-2">
+        {navItems.map(item => (
+          <li>
+            <a href={item.url} class="block py-2 text-gray-700 hover:text-primary-600 transition duration-300">
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('#mobile-menu') && !target.closest('#mobile-menu-button')) {
+      mobileMenu?.classList.add('hidden');
+    }
+  });
+  
+  // Close mobile menu when clicking on a menu item
+  const mobileMenuItems = mobileMenu?.querySelectorAll('a');
+  mobileMenuItems?.forEach(item => {
+    item.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>
