@@ -1,0 +1,70 @@
+---
+const projects = [
+  {
+    title: "E-commerce Platform",
+    description: "A fully responsive e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product search, cart management, and payment processing.",
+    image: "https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    link: "#"
+  },
+  {
+    title: "Portfolio Website",
+    description: "A professional portfolio website showcasing work samples and skills. Built with Astro and TailwindCSS for optimal performance and clean design.",
+    image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    tags: ["Astro", "TailwindCSS", "JavaScript"],
+    link: "#"
+  },
+  {
+    title: "Task Management App",
+    description: "A productivity application for managing tasks and projects. Features include drag-and-drop organization, priority settings, and team collaboration tools.",
+    image: "https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    tags: ["React", "Firebase", "Redux", "TailwindCSS"],
+    link: "#"
+  }
+];
+---
+
+<section id="projects" class="py-20">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900" data-aos="fade-up">
+      Featured Projects
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <div 
+          class="bg-white/60 backdrop-blur-sm rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:-translate-y-2"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <img 
+            src={project.image} 
+            alt={project.title} 
+            class="w-full h-48 object-cover"
+          />
+          
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+            
+            <p class="text-gray-700 mb-4">{project.description}</p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tags.map(tag => (
+                <span class="text-xs bg-primary-100 text-primary-800 px-2 py-1 rounded-full">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <a 
+              href={project.link}
+              class="inline-block bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg transition duration-300"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
