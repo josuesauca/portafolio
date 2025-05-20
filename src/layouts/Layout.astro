@@ -32,42 +32,46 @@ const { title, description } = Astro.props;
     <Footer />
 
     <script>
-      window.Aos.init({
+      import Aos from "aos";
+
+      Aos.init({
         duration: 800,
         easing: 'ease-in-out',
         once: true
       });
     </script>
+    
+    <style is:global>
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      /* Your custom styles */
+      html {
+        font-family: system-ui, sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      section {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      @media (min-width: 768px) {
+        section {
+          padding: 4rem;
+        }
+      }
+    </style>
+
   </body>
 </html>
-
-<style is:global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-  
-  html {
-    font-family: system-ui, sans-serif;
-    scroll-behavior: smooth;
-  }
-  
-  body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-
-  section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 2rem 1rem;
-  }
-
-  @media (min-width: 768px) {
-    section {
-      padding: 4rem;
-    }
-  }
-</style>
