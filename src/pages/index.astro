@@ -8,8 +8,10 @@ import Technologies from '../components/Technologies.astro';
 import Contact from '../components/Contact.astro';
 
 // Welcome to Astro! This is your landing page using TailwindCSS
+const title = "Your Name";
+const description = "Professional Landing Page";
 ---
 
-<Layout title="Professional Landing Page" description="Esta es mi página personal">
-
+<Layout title={title} description={description}>
+  <Hero />
 </Layout>
