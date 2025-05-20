@@ -1,4 +1,5 @@
 ---
+// Navbar data
 const navItems = [
   { name: 'Home', url: '#home' },
   { name: 'Experience', url: '#experience' },
@@ -12,9 +13,9 @@ const navItems = [
   <div class="container mx-auto py-4 px-4 md:px-6">
     <nav class="flex justify-between items-center">
       <div class="flex items-center">
-        <a href="#home" class="text-primary-700 font-bold text-xl">YourName</a>
+        <a href="#home" class="text-primary-700 font-bold text-xl">Josue Sauca</a>
       </div>
-      
+
       <!-- Mobile menu button -->
       <div class="flex md:hidden">
         <button id="mobile-menu-button" class="text-primary-700 hover:text-primary-900">
@@ -23,9 +24,9 @@ const navItems = [
           </svg>
         </button>
       </div>
-      
+
       <!-- Desktop menu -->
-      <ul class="hidden md:flex space-x-8">
+      <ul class="hidden md:flex md:space-x-8">
         {navItems.map(item => (
           <li>
             <a href={item.url} class="text-gray-700 hover:text-primary-600 transition duration-300">
@@ -35,7 +36,7 @@ const navItems = [
         ))}
       </ul>
     </nav>
-    
+
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden mt-4 bg-white rounded-lg shadow-lg py-2 px-4 absolute left-4 right-4">
       <ul class="space-y-2">
@@ -52,27 +53,30 @@ const navItems = [
 </header>
 
 <script>
-  // Mobile menu toggle
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
-  
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (event) => {
-    const target = event.target as HTMLElement;
-    if (!target.closest('#mobile-menu') && !target.closest('#mobile-menu-button')) {
-      mobileMenu?.classList.add('hidden');
-    }
-  });
-  
-  // Close mobile menu when clicking on a menu item
-  const mobileMenuItems = mobileMenu?.querySelectorAll('a');
-  mobileMenuItems?.forEach(item => {
-    item.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Toggle mobile menu
+    mobileMenuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('#mobile-menu') && !target.closest('#mobile-menu-button')) {
+        mobileMenu?.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking on a menu item
+    const mobileMenuItems = mobileMenu?.querySelectorAll('a');
+    mobileMenuItems?.forEach(item => {
+      item.addEventListener('click', () => {
+        mobileMenu?.classList.add('hidden');
+      });
     });
   });
 </script>
