@@ -18,6 +18,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://unpkg.com/aos @2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -40,7 +41,7 @@ const { title, description } = Astro.props;
         once: true
       });
     </script>
-    
+
     <style is:global>
       @tailwind base;
       @tailwind components;

@@ -1,58 +1,148 @@
-<section id="home" class="min-h-screen flex flex-col justify-center items-center pt-16 pb-8">
+---
+// Hero.astro
+
+// Import necessary dependencies if any
+---
+
+<section
+  id="home"
+  class="min-h-screen flex flex-col justify-center items-center pt-16 pb-8"
+>
   <div class="container mx-auto px-4 flex flex-col items-center text-center">
-    <div 
+    <div
       class="w-40 h-40 md:w-56 md:h-56 rounded-full border-4 border-primary-500 p-1 mb-8 overflow-hidden bg-white"
       data-aos="fade-down"
     >
-      <img 
-        src="https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 " 
-        alt="Profile" 
+      <img
+        src="https://i.ibb.co/M5VVsbZp/2.jpg"
+        alt="Profile"
         class="w-full h-full object-cover rounded-full"
       />
     </div>
-    
-    <h1 
+
+    <h1
       class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900"
-      data-aos="fade-up" 
+      data-aos="fade-up"
       data-aos-delay="100"
     >
       Josue Sauca
     </h1>
-    
-    <h2 
+
+    <!-- Add an ID to the <h2> for targeting with JavaScript -->
+    <h2
+      id="typing-text"
       class="text-xl md:text-2xl text-primary-700 mb-6"
-      data-aos="fade-up" 
+      data-aos="fade-up"
       data-aos-delay="200"
     >
-      Enthusiast of Technology
+      <!-- This will be dynamically populated -->
     </h2>
-    
-    <div class="flex justify-center space-x-4 mb-8" data-aos="fade-up" data-aos-delay="300">
-      <a href="#" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-300">
-        LinkedIn
+
+    <div
+      class="flex justify-center space-x-4 mb-8"
+      data-aos="fade-up"
+      data-aos-delay="300"
+    >
+      <!-- LinkedIn -->
+      <a
+        href="https://www.linkedin.com/in/josue-alejandro-sauca-pucha-965b73282/  "
+        target="_blank"
+        class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-linkedin-in text-xl"></i>
       </a>
-      <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300">
-        GitHub
+
+      <!-- GitHub -->
+      <a
+        href="https://github.com/josuesauca  "
+        target="_blank"
+        class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-github text-xl"></i>
       </a>
-      <a href="#" class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-300">
-        Twitter
+
+      <!-- Instagram -->
+      <a
+        href="https://www.instagram.com/josuesauca/  "
+        target="_blank"
+        class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 hover:from-purple-700 hover:via-pink-700 hover:to-red-700 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-instagram text-xl"></i>
+      </a>
+
+      <!-- WhatsApp -->
+      <a
+        href="#"
+        target="_blank"
+        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-whatsapp text-xl"></i>
+      </a>
+
+      <!-- YouTube -->
+      <a
+        href="https://www.youtube.com/  @josuesauca5805"
+        target="_blank"
+        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-youtube text-xl"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a
+        href="https://www.tiktok.com/  @josue.sauca"
+        target="_blank"
+        class="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+      >
+        <i class="fab fa-tiktok text-xl"></i>
       </a>
     </div>
-    
-    <p 
-      class="text-gray-700 max-w-2xl mx-auto text-lg"
-      data-aos="fade-up" 
-      data-aos-delay="400"
-    >
-      Professional developer with experience in web development and a passion for creating elegant, efficient solutions.
-    </p>
   </div>
-  
+
   <div class="mt-12 animate-bounce">
-    <a href="#about" class="text-primary-600 hover:text-primary-800">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-      </svg>
+    <a
+      href="https://www.tiktok.com/  @josue.sauca"
+      target="_blank"
+      class="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded-lg transition duration-300 hover:scale-110"
+    >
+      <i class="fab fa-tiktok text-xl"></i>
     </a>
   </div>
 </section>
+
+<div class="mt-12 animate-bounce">
+  <a href="#about" class="text-primary-600 hover:text-primary-800">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-8 h-8"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"></path>
+    </svg>
+  </a>
+</div>
+
+<script>
+  // Function to simulate typing effect
+  function typeText(element, text, index = 0, delay = 50) {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      setTimeout(() => typeText(element, text, index + 1, delay), delay);
+    }
+  }
+
+  // Target the element where the typing effect will occur
+  const typingElement = document.getElementById("typing-text");
+
+  // Text to be typed
+  const textToType = "Enthusiast of Technology";
+
+  // Start the typing effect
+  typeText(typingElement, textToType);
+</script>
