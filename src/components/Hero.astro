@@ -101,6 +101,7 @@
 
 <div class="mt-12 animate-bounce">
   <a
+    href="https://drive.google.com/uc?export=download&id=1vq8Be1T6lTeEICzr02Bp1TrN18_dS9Rg"
     target="_blank"
     class="bg-black bg-opacity-50 hover:bg-gray-800 text-white px-6 py-3 rounded-full transition duration-300 hover:scale-110 text-xl"
   >
@@ -111,20 +112,41 @@
 </section>
 
 <script>
-  // Function to simulate typing effect
-  function typeText(element, text, index = 0, delay = 50) {
+  // Array of words to cycle through
+  const words = ["Fanático de la tecnología", "Ingeniero en Computación", "Gusto por la Inteligencia Artificial"];
+  let currentWordIndex = 0;
+
+  const typingElement = document.getElementById("typing-text");
+
+  const typingSpeed = 100;     // milliseconds per character
+  const erasingSpeed = 70;     // milliseconds per character
+  const delayBeforeErase = 2000;   // ms before starting to erase
+  const delayBeforeNext = 500;     // ms before typing next word
+
+  function typeText(element, text, index = 0) {
     if (index < text.length) {
       element.textContent += text.charAt(index);
-      setTimeout(() => typeText(element, text, index + 1, delay), delay);
+      setTimeout(() => typeText(element, text, index + 1), typingSpeed);
+    } else {
+      // After typing is done, wait and start erasing
+      setTimeout(() => eraseText(element, text.length - 1), delayBeforeErase);
     }
   }
 
-  // Target the element where the typing effect will occur
-  const typingElement = document.getElementById("typing-text");
+  function eraseText(element, index) {
+    if (index >= 0) {
+      element.textContent = element.textContent.slice(0, -1);
+      setTimeout(() => eraseText(element, index - 1), erasingSpeed);
+    } else {
+      // Move to next word in array
+      currentWordIndex = (currentWordIndex + 1) % words.length;
+      const nextWord = words[currentWordIndex];
+      setTimeout(() => typeText(element, nextWord), delayBeforeNext);
+    }
+  }
 
-  // Text to be typed
-  const textToType = "Enthusiast of Technology";
-
-  // Start the typing effect
-  typeText(typingElement, textToType);
+  // Start the loop with the first word
+  window.addEventListener("load", () => {
+    typeText(typingElement, words[currentWordIndex]);
+  });
 </script>
